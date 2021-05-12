@@ -24,7 +24,7 @@ class StudentsController < ApplicationController
     end
 
     def show 
-        @student = Student.find_by(params[:id])
+        @student = Student.find(params[:id])
     end
 
     private 
