@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  root 'application#home'
   
   resources :notes
   get 'signin', to: 'sessions#new'
