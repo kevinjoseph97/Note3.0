@@ -1,0 +1,13 @@
+<h1> Welcome to Sessions </h1>
+
+
+<%= form_with url: '/signin' do |f|  %>
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <br><br>
+    <%= f.label :password %>
+    <%= f.password_field :password %><br>
+    <br><br>
+
+    <%= f.submit "Sign In" %>
+<% end %>
