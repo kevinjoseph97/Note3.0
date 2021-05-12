@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController 
-
+    #this is to track whos logged in
     def new 
 
     end
