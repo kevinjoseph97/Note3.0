@@ -1,26 +1,34 @@
 
 <%# <%= binding.pry%> 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <%# <a class="navbar-brand" href="/">NoteApp</a> %>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+ <div class="container-fluid">
+    <a class="navbar-brand" href="/">NoteApp</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
+   <%# <%binding.pry %>  
 
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item active">
-        <%= link_to "Add Note",new_note_path, class: 'nav-link'%>
-      </li>
+  <% if session[:student_id] == nil %>
+      
       <li class="nav-item">
         <%= link_to "Sign In",signin_path, class: 'nav-link'%>
       <li class="nav-item">
         <%= link_to "Sign Up", new_student_path, class: 'nav-link'%>
       </li>
-       <li class="nav-item">
-        <%= link_to "Sign Out",signout_path, method: :delete, class: 'nav-link'%>
-      </li>
+     
+  <% else %>
+       <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+        <li class="nav-item active">
+          <%= link_to "Add Note",new_note_path, class: 'nav-link'%>
+        </li>
+        
+        <li class="nav-item">
+          <%= link_to "Sign Out",signout_path, method: :delete, class: 'nav-link'%>
+        </li>
+    <% end %>
       
     </ul>
   </div>
@@ -28,4 +36,5 @@
 
 
 
+session[:student_id]
 nil if there no student signed in 

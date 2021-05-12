@@ -13,9 +13,9 @@ class StudentsController < ApplicationController
 
     def create 
         @student = Student.new(student_params)
-        binding.pry
+        # binding.pry
         if @student.save
-            binding.pry
+            # binding.pry
             redirect_to student_path(@student)
         else
             render 'new'
@@ -24,9 +24,9 @@ class StudentsController < ApplicationController
     end
 
     def show 
-        binding.pry
+        # binding.pry
         @student = Student.find(params[:id])
-        binding.pry
+        # binding.pry
     end
 
     private 

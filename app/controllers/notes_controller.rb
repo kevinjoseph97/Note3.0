@@ -11,7 +11,7 @@ class NotesController < ApplicationController
 
     def create
         @note = Note.new(notes_params)
-        binding.pry
+        # binding.pry
         if @note.save 
             redirect_to note_path(@note)
         else
