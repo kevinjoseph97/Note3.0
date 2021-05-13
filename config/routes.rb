@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :classroom_notes
+  resources :classrooms
   root 'application#home'
   
   resources :notes

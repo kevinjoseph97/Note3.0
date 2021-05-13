@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_12_160831) do
+ActiveRecord::Schema.define(version: 2021_05_13_010038) do
+
+  create_table "classroom_notes", force: :cascade do |t|
+    t.integer "note_id", null: false
+    t.integer "classroom_id", null: false
+    t.boolean "sharable"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classroom_id"], name: "index_classroom_notes_on_classroom_id"
+    t.index ["note_id"], name: "index_classroom_notes_on_note_id"
+  end
+
+  create_table "classrooms", force: :cascade do |t|
+    t.string "subject"
+    t.integer "student_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_classrooms_on_student_id"
+  end
 
   create_table "notes", force: :cascade do |t|
     t.string "title"
@@ -23,8 +41,13 @@ ActiveRecord::Schema.define(version: 2021_05_12_160831) do
     t.string "username"
     t.string "major"
     t.string "password_digest"
+    t.string "uid"
+    t.string "provider"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "classroom_notes", "classrooms"
+  add_foreign_key "classroom_notes", "notes"
+  add_foreign_key "classrooms", "students"
 end
