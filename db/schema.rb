@@ -33,8 +33,10 @@ ActiveRecord::Schema.define(version: 2021_05_13_010038) do
   create_table "notes", force: :cascade do |t|
     t.string "title"
     t.string "content"
+    t.integer "student_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["student_id"], name: "index_notes_on_student_id"
   end
 
   create_table "students", force: :cascade do |t|
@@ -50,4 +52,5 @@ ActiveRecord::Schema.define(version: 2021_05_13_010038) do
   add_foreign_key "classroom_notes", "classrooms"
   add_foreign_key "classroom_notes", "notes"
   add_foreign_key "classrooms", "students"
+  add_foreign_key "notes", "students"
 end
