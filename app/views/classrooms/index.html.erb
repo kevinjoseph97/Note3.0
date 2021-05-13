@@ -1,0 +1,6 @@
+
+<h1>Classrooms </h1>
+
+<% @classrooms.each do |c|  %>
+    <%= link_to c.subject, classroom_path(c)%>
+<% end %>
