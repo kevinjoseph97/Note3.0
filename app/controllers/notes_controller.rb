@@ -20,7 +20,7 @@ class NotesController < ApplicationController
     end
 
     def show 
-        @note = Note.find_by(params[:id])
+        @note = Note.find(params[:id])
     end
 
     def edit 

@@ -13,7 +13,6 @@ class StudentsController < ApplicationController
 
     def create 
         @student = Student.new(student_params)
-        # binding.pry
         if @student.save
             # binding.pry
             redirect_to student_path(@student)
@@ -24,7 +23,7 @@ class StudentsController < ApplicationController
     end
 
     def show 
-        # binding.pry
+       
         @student = Student.find(params[:id])
         # binding.pry
     end

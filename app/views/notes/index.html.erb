@@ -1,7 +1,7 @@
 <h1> All Notes </h1>
 
 <% @notes.each do |n|%>
-    <%= link_to n.title, note_path(n) %>
+    <li><%= link_to n.title, note_path(n) %></li>
 <% end %>
 
 
