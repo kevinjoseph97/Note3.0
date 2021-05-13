@@ -1,15 +1,19 @@
 class NotesController < ApplicationController
 
+
+    def index 
+        #filter only student notes??
+        @notes = Note.all 
+    end
+
+
     def new
         @note = Note.new 
     end
 
 
-
-
     def create 
-        
-       
+    
         @note = Note.new(notes_params)
         @note.student = current_student
         binding.pry
@@ -22,7 +26,7 @@ class NotesController < ApplicationController
     end
 
     def show 
-        @note = Note.find_by(id: params[:id])
+        @note = Note.find(params[:id])
     end
 
 
