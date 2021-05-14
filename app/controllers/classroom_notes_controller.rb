@@ -1,10 +1,34 @@
 class ClassroomNotesController < ApplicationController
+    #drop down for the classroom subject
+    # ClassroomNote.first.classroom.student.username
+
+    def index 
+        @classroom_notes = ClassroomNote.all
+    end
+
+    def new 
+        @classroom_note = ClassroomNote.new
+        # binding.pry
+       
+    end
+
+    def create
 
 
-    #drop down for the classroom subject 
+    end
 
 
+    def edit
+    end
 
+    def update
+    end
 
-    # @classroom.student.notes
+    private 
+
+        def classnote_params 
+            params.require(:classroom_note).permit(:note_id, :classroom_id, :sharable)
+        end
+    
+
 end

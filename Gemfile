@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'pry'
 gem 'bcrypt'
 
+gem 'faker'
+
 
 
 

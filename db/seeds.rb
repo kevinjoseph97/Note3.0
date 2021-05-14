@@ -7,14 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-Student.create(username: "Test1", major: 'Bio', password_digest:"hi" )
-Student.create(username: "Test2", major: 'Math', password_digest:"hii" )
-Student.create(username: "Test3", major: 'Science', password_digest:"hiii" )
-Student.create(username: "Test4", major: 'Art', password_digest:"hiiii" )
+
+10.times do 
+
+    Student.create(username: Faker::Name.first_name, major:Faker::Educator.degree, password: 'hi')
+end
 
 
-Classroom.create(subject: 'Bio', student_id: '1')
-Classroom.create(subject: 'Math', student_id: '2')
-Classroom.create(subject: 'Science', student_id: '3')
-Classroom.create(subject: 'Art', student_id: '4')
+10.times do 
+    Note.create(title:Faker::Games::Pokemon.name, content: Faker::Games::Pokemon.move, student: Student.all.sample )
 
+end
+
+
+5.times do 
+    Classroom.create(subject: Faker::Educator.subject, student: Student.all.sample )
+
+end
+
+
+10.times do 
+    ClassroomNote.create(note: Note.all.sample, classroom: Classroom.all.sample, sharable: true)
+end

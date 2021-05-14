@@ -1,0 +1,20 @@
+<h1>THis is Classroom Note NEW Form</h1>
+
+
+
+<%= form_with model: @classroom_note do |f| %>
+
+    <%= f.collection_select :classroom_id, Classroom.all, :id, :subject%>
+   
+
+        
+
+
+
+
+
+
+
+
+
+<% end %>
