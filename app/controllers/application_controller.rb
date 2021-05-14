@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-    helper_method :authorized, :current_student
+    helper_method :authorized?, :current_student
 
 
     def home 
@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
     
 
-    def authorized
+    def authorized?
         redirect_to '/signin' unless @current_student
     end
 

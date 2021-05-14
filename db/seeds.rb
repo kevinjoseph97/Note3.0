@@ -20,7 +20,7 @@ end
 end
 
 
-5.times do 
+10.times do 
     Classroom.create(subject: Faker::Educator.subject, student: Student.all.sample )
 
 end

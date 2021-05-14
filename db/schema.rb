@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_05_13_010038) do
 
   create_table "classroom_notes", force: :cascade do |t|
-    t.integer "note_id", null: false
+    t.integer "note_id"
     t.integer "classroom_id", null: false
     t.boolean "sharable"
     t.datetime "created_at", precision: 6, null: false

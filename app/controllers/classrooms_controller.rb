@@ -1,16 +1,19 @@
 class ClassroomsController < ApplicationController
+   
+   
+  
 
     def index 
-        @classrooms = Classroom.all
-        # binding.pry
+     
+        @classrooms = current_student.classrooms
+        binding.pry
     end
 
-   
-    def show 
+
+    def show
         @classroom = Classroom.find_by(id: params[:id])
     end
 
-
- 
+   
     
 end

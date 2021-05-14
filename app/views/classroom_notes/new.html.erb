@@ -8,7 +8,7 @@
 
    <%= f.collection_select :note_id, Note.all, :id, :title %>
    <%= f.label :sharable%>
-   <%# <% f.check_box :sharable, true, false%> %>
+   <%= f.check_box :sharable, {}, true, false %>
 
     
     <%= f.submit%>

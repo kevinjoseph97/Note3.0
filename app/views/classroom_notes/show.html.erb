@@ -3,5 +3,6 @@
 <h1>Here are Notes for <%= @classroomnote.classroom.subject %> </h1>
 
 <liL>
-<%= @classroomnote.note.title%>
+<%= link_to @classroomnote.note.title, note_path( @classroomnote.note.id) %>
 </li>
+

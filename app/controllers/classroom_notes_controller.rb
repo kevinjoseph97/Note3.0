@@ -11,7 +11,7 @@ class ClassroomNotesController < ApplicationController
 
     def new 
         @classroomnote = ClassroomNote.new
-        binding.pry
+        # binding.pry
     end
 
     def create
@@ -19,17 +19,17 @@ class ClassroomNotesController < ApplicationController
         binding.pry
         if @classroomnote.save 
             binding.pry
+            current_student.classrooms << @classroomnote.classroom
+            binding.pry
             redirect_to classroom_note_path(@classroomnote)
         else
             binding.pry
             render :new
         end
-
     end
 
     def show 
         @classroomnote = ClassroomNote.find_by_id(params[:id])
-        
     end
 
 

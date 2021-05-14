@@ -4,3 +4,7 @@
 <% @classrooms.each do |c|  %>
     <li><%= link_to c.subject, classroom_note_path(c)%></li>
 <% end %>
+
+<br><br><br><br>
+
+<%= link_to "Add Classroom", new_classroom_note_path %>
