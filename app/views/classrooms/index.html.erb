@@ -2,5 +2,5 @@
 <h1>Classrooms </h1>
 
 <% @classrooms.each do |c|  %>
-    <%= link_to c.subject, classroom_path(c)%>
+    <li><%= link_to c.subject, classroom_note_path(c)%></li>
 <% end %>

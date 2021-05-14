@@ -2,9 +2,23 @@
 
 
 
-<%= form_with model: @classroom_note do |f| %>
+<%= form_with model: @classroomnote do |f| %>
 
-    <%= f.collection_select :classroom_id, Classroom.all, :id, :subject%>
+    <%= f.collection_select :classroom_id, Classroom.all, :id, :subject %>
+
+   <%= f.collection_select :note_id, Note.all, :id, :title %>
+   <%= f.label :sharable%>
+   <%# <% f.check_box :sharable, true, false%> %>
+
+    
+    <%= f.submit%>
+    
+<% end %>
+
+
+
+
+   
    
 
         
@@ -14,7 +28,3 @@
 
 
 
-
-
-
-<% end %>

@@ -11,13 +11,6 @@ class ClassroomsController < ApplicationController
     end
 
 
-
-    # private 
-
-    # def classroom_params
-    
-    # end
-
-
+ 
     
 end

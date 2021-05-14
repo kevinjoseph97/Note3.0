@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::Base
 
+    helper_method :authorized, :current_student
+
+
     def home 
     end
 
@@ -15,9 +18,4 @@ class ApplicationController < ActionController::Base
     end
 
 
-
-
- 
-
-    
 end

@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
-
-  resources :classroom_notes
-  resources :classrooms
   root 'application#home'
   
+  resources :classroom_notes
+  resources :classrooms
   resources :notes
+
+  
+  resources :students do 
+    resources :classroom
+  end
+
+  post '/classroom_notes/new', to: "classroom_notes#create"
+
+
   get 'signin', to: 'sessions#new'
   post 'signin', to: 'sessions#create'
   delete 'signout', to: 'sessions#destroy'
@@ -13,6 +21,6 @@ Rails.application.routes.draw do
   get 'signup', to: 'students#new'
   post 'signup', to: 'students#create'
 
-  resources :students
+  
  
 end

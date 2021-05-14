@@ -2,33 +2,53 @@ class ClassroomNotesController < ApplicationController
     #drop down for the classroom subject
     # ClassroomNote.first.classroom.student.username
 
-    def index 
-        @classroom_notes = ClassroomNote.all
-    end
+    #don't need this... 
+    # def index 
+    #     @classroom_notes = ClassroomNote.all
+    # end
+
+    
 
     def new 
-        @classroom_note = ClassroomNote.new
-        # binding.pry
-       
+        @classroomnote = ClassroomNote.new
+        binding.pry
     end
 
     def create
-
+        @classroomnote = ClassroomNote.new(classroomnote_params)
+        binding.pry
+        if @classroomnote.save 
+            binding.pry
+            redirect_to classroom_note_path(@classroomnote)
+        else
+            binding.pry
+            render :new
+        end
 
     end
 
-
-    def edit
+    def show 
+        @classroomnote = ClassroomNote.find_by_id(params[:id])
+        
     end
 
-    def update
-    end
+
+    #do I want to edit notes from here
+    # def edit
+    # end
+
+    # def update
+    # end
 
     private 
 
-        def classnote_params 
+        def classroomnote_params 
             params.require(:classroom_note).permit(:note_id, :classroom_id, :sharable)
         end
+
+        # def classroomnote_note_params 
+        #     params.require(:classroom_note).permit(:note_id, :classroom_id, :sharable, notes_attributes: [:title, :content])
+        # end
     
 
 end
