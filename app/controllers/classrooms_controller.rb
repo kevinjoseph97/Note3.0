@@ -1,7 +1,6 @@
 class ClassroomsController < ApplicationController
 
     def index 
-        @student_id = session[:student_id]
         @classrooms = Classroom.all
         # binding.pry
     end
@@ -13,10 +12,11 @@ class ClassroomsController < ApplicationController
 
 
 
-    private 
+    # private 
 
-    def classroom_params
-    end
+    # def classroom_params
+    
+    # end
 
 
     
