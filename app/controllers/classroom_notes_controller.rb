@@ -29,7 +29,8 @@ class ClassroomNotesController < ApplicationController
     end
 
     def show 
-        @classroomnote = ClassroomNote.find_by_id(params[:id])
+        @classroomnote = ClassroomNote.find_by(id: params[:id])
+        binding.pry
     end
 
 

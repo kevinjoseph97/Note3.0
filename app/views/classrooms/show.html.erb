@@ -2,5 +2,21 @@
 
 <h2>Welcome to <%= @classroom.subject%> Class </h2>
 
-<%# <%binding.pry%>
+ <%# <%binding.pry%> 
+
+<h3>All Notes for this Class From Everyone: </h3>
+
+
+
+
+<li>
+    <%  @classroom.notes.each do |n|%>
+        <li> <%= link_to n.title, note_path(n) %></li>
+    <% end %>
+
+</li>
+
+
+
+ <%# if current_student.id == n.student_id  %>
 

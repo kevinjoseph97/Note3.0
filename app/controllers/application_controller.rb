@@ -17,5 +17,10 @@ class ApplicationController < ActionController::Base
         @current_student ||= Student.find(session[:student_id]) if session[:student_id]
     end
 
+    def student_note
+
+    end
+    
+
 
 end
