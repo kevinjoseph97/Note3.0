@@ -4,14 +4,23 @@
 
 <% if session[:student_id].nil? == false%>
     
-    <%= link_to "Sign Out",signout_path, method: :delete%>
+    <%= link_to "Sign Out",signout_path, method: :delete%> <br><br>
 
-     <%# <%= link_to "Classrooms", student_classroom_index_path(current_student.id) %>  
+    <%= link_to "NoteApp", root_path%><br><br>
+
+    <%= link_to "New Note", new_note_path%><br><br>
+
+    <%= link_to "Classrooms", classrooms_path%>
+
+
+
 
 <% else %>
-    <%= link_to "Sign In",signin_path%>
+    <%= link_to "Sign In",signin_path%><br><br>
 
-    <%= link_to "Sign Up", new_student_path%>
+    <%= link_to "Sign Up", new_student_path%><br><br>
+
+    <%= button_to "Log in with Google", '/auth/google_oauth2' %>
 <% end %>
 
 

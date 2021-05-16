@@ -10,11 +10,15 @@ class ClassroomNotesController < ApplicationController
     
 
     def new 
+        
         @classroomnote = ClassroomNote.new
         # binding.pry
+       
+
     end
 
     def create
+        
         @classroomnote = ClassroomNote.new(classroomnote_params)
         binding.pry
         if @classroomnote.save 

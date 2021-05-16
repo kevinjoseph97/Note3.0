@@ -22,5 +22,7 @@ Rails.application.routes.draw do
   post 'signup', to: 'students#create'
 
   
- 
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
+
+
 end

@@ -18,9 +18,10 @@ class ApplicationController < ActionController::Base
     end
 
     def student_note
-
+         current_student.id == n.student_id 
+ 
     end
-    
+
 
 
 end

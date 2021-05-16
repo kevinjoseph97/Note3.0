@@ -1,10 +1,12 @@
 class NotesController < ApplicationController
 
 
-    def index 
-        #filter only student notes??
-        @notes = Note.all 
-    end
+    # def index 
+    #     #filter only student notes??
+    #     binding.pry
+    #     @notes = Note.all 
+    
+    # end
 
 
     def new
@@ -15,6 +17,7 @@ class NotesController < ApplicationController
     def create 
     
         @note = Note.new(notes_params)
+        binding.pry
         @note.student = current_student
         binding.pry
         if @note.save 
@@ -60,6 +63,14 @@ class NotesController < ApplicationController
     def notes_params 
         params.require(:note).permit(:title, :content)
     end
+
+    def find_classroom
+        @classroom = Classrooom.find_by_id[params[:classroom_id]]
+    end
+
+    def note_classroom_params
+        params.require(:note).permit(:title, :content, :classroom_id )
+    end
+
 end
 
-#need to set up student id to note being vcreated 
