@@ -4,11 +4,11 @@ class SessionsController < ApplicationController
     end
 
     def omniauth
-        binding.pry
+        # binding.pry
         @student = Student.create_from_omniauth(auth)
         if @student.valid? 
             session[:student_id] = @student.id
-            binding.pry
+            # binding.pry
             redirect_to student_path(@student)
         else
             flash[:message] = @student.errors.full_messages.join(',')
@@ -20,17 +20,17 @@ class SessionsController < ApplicationController
 
 
     
-    # def create 
-    #     @student = Student.find_by(username: params[:username])
-    #     binding.pry
-    #     if @student && @student.authenticate(params[:password])
-    #         session[:student_id] = @student.id
-    #         binding.pry
-    #         redirect_to student_path(@student)
-    #     else
-    #         redirect_to signin_path
-    #     end 
-    # end
+    def create 
+        @student = Student.find_by(username: params[:username])
+        # binding.pry
+        if @student && @student.authenticate(params[:password])
+            session[:student_id] = @student.id
+            # binding.pry
+            redirect_to student_path(@student)
+        else
+            redirect_to signin_path
+        end 
+    end
 
     def destroy 
         session.clear 

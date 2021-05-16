@@ -3,9 +3,8 @@ class NotesController < ApplicationController
 
     # def index 
     #     #filter only student notes??
+    #     @notes = current_student.notes
     #     binding.pry
-    #     @notes = Note.all 
-    
     # end
 
 
@@ -15,13 +14,12 @@ class NotesController < ApplicationController
 
 
     def create 
-    
         @note = Note.new(notes_params)
-        binding.pry
+        # binding.pry
         @note.student = current_student
-        binding.pry
+        # binding.pry
         if @note.save 
-            binding.pry
+            # binding.pry
             redirect_to note_path(@note)
         else
             render :new

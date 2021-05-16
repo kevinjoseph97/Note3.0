@@ -11,7 +11,8 @@
 
 <li>
     <%  @classroom.notes.each do |n|%>
-        <li> <%= link_to n.title, note_path(n) %></li>
+        <%# <%binding.pry%>
+        <li> <%= link_to n.title, note_path(n) %> - Owner: <%=n.student.username%></li>
     <% end %>
 
 </li>

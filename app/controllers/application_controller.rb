@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     
 
     def authorized?
-        redirect_to '/signin' unless @current_student
+        redirect_to '/signin' unless @current_student /= nil
     end
 
 
@@ -18,8 +18,7 @@ class ApplicationController < ActionController::Base
     end
 
     def student_note
-         current_student.id == n.student_id 
- 
+         current_student.id == @note.student_id 
     end
 
 

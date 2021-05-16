@@ -5,7 +5,7 @@ class ClassroomsController < ApplicationController
 
     def index 
         @classrooms = current_student.classrooms
-        binding.pry
+        # binding.pry
     end
 
     

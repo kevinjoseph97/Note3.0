@@ -11,14 +11,16 @@
 <h3><%= @note.content%></h3>
 
 
-<%= binding.pry%>
+<%# <%= binding.pry%> 
 
 <% if @note.student_id == current_student.id %>
-    edit: <%= link_to "Edit", edit_note_path(@note)%>
-    delete: <%= link_to "Delete Note", note_path(@note), method: :delete, data: { confirm: 'Are you sure?' } %>
+   <%= link_to "Edit", edit_note_path(@note)%>
+  <%= link_to "Delete Note", note_path(@note), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= link_to "Add This Note To A Classroom", new_classroom_note_path %> 
 <% else %>
-    <%= link_to "All Notes", notes_path %>
+    <%# <%= link_to "All Notes", notes_path %> 
+    <%= link_to "Add This Note To A Classroom", new_classroom_note_path %> 
+   <%= link_to 'Back', classrooms_path %>
 <% end %>
 
 
-<%= link_to "Add This Note To A Classroom", new_classroom_note_path %>
