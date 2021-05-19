@@ -1,11 +1,12 @@
 class Student < ApplicationRecord
     has_secure_password
 
-
-
-
     has_many :classrooms
     has_many :notes 
+
+
+    validates :username, presence: true, uniqueness: true
+    validates :password, length: { in: 6..8 }
 
 
     def self.create_from_omniauth(auth)
@@ -16,6 +17,5 @@ class Student < ApplicationRecord
 
     end
 
-    
     
 end

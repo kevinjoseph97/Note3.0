@@ -14,8 +14,9 @@
     <%= f.label :content%>
     <%= f.text_area :content, size: "70x5"%>
 
-
-    <%= f.hidden_field :classroom_id, value: @classroom.id %>
+    <% if @classroom %>
+        <%= f.hidden_field :classroom_id, value: @classroom.id %>
+    <% end %>
  
 
     <br>

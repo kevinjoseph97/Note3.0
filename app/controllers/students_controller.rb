@@ -12,11 +12,13 @@ class StudentsController < ApplicationController
 
     def create 
         @student = Student.new(student_params)
+        binding.pry
         if @student.save
             session[:student_id] = @student.id
             # binding.pry
             redirect_to student_path(@student)
         else
+
             render 'new'
         end
 
@@ -24,12 +26,13 @@ class StudentsController < ApplicationController
 
     def show 
         find_student
+        
     end
 
     private 
 
     def student_params
-        params.require(:student).permit(:username, :major, :password)
+        params.require(:student).permit(:username, :password)
     end
 
     def find_student 

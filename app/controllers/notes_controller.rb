@@ -5,8 +5,9 @@ class NotesController < ApplicationController
     #   binding.pry
       if params[:classroom_id]
         @classroom = find_classroom
-        # binding.pry
+       
         @notes = @classroom.notes
+        binding.pry
       else
         @notes = Note.all
         binding.pry
