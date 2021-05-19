@@ -4,18 +4,16 @@
 
  <%# <%binding.pry%> 
 
-<h3>All Notes for this Class From Everyone: </h3>
+link to add new note
+<br>
 
 
+link to see all notes
 
 
-<li>
-    <%  @classroom.notes.each do |n|%>
-        <%# <%binding.pry%>
-        <li> <%= link_to n.title, note_path(n) %> - Owner: <%=n.student.username%></li>
-    <% end %>
+<%= link_to "All Notes", "/classrooms/#{@classroom.id}/notes" %>
 
-</li>
+
 
 
 

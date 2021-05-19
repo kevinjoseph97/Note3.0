@@ -1,35 +1,61 @@
 class NotesController < ApplicationController
 
 
-    # def index 
-    #     #filter only student notes??
-    #     @notes = current_student.notes
-    #     binding.pry
-    # end
+    def index 
+    #   binding.pry
+      if params[:classroom_id]
+        @classroom = find_classroom
+        # binding.pry
+        @notes = @classroom.notes
+      else
+        @notes = Note.all
+        binding.pry
+      end
+
+    end
 
 
     def new
-        @note = Note.new 
+        if params[:classroom_id]
+            @classroom = find_classroom
+            @note = @classroom.notes.build
+            binding.pry
+        else
+            @note = Note.new 
+            binding.pry
+        end
     end
 
 
     def create 
-        @note = Note.new(notes_params)
-        # binding.pry
-        @note.student = current_student
-        # binding.pry
+        @classroom = find_classroom
+        if params[:classroom_id]
+            binding.pry
+            @note = @classroom.notes.build(notes_params)
+            @note.student = current_student
+        else
+            binding.pry
+            @note = Note.new(notes_params)
+            @note.student = current_student
+            binding.pry
+        end
+
+
+
+
         if @note.save 
-            # binding.pry
+            binding.pry
             redirect_to note_path(@note)
         else
             render :new
         end  
     end
 
-    def show 
-        @note = Note.find(params[:id])
-    end
 
+
+    def show 
+        @note = Note.find_by(id: params[:id])
+    end
 
 
 
@@ -59,16 +85,14 @@ class NotesController < ApplicationController
 
 
     def notes_params 
-        params.require(:note).permit(:title, :content)
+        params.require(:note).permit(:title, :content, :classroom_id)
     end
 
     def find_classroom
-        @classroom = Classrooom.find_by_id[params[:classroom_id]]
+        @classroom = Classroom.find_by_id(params[:classroom_id])
     end
 
-    def note_classroom_params
-        params.require(:note).permit(:title, :content, :classroom_id )
-    end
+   
 
 end
 

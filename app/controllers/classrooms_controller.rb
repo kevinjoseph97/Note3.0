@@ -11,6 +11,7 @@ class ClassroomsController < ApplicationController
     
     def show
         @classroom = Classroom.find_by(id: params[:id])
+       
     end
 
    

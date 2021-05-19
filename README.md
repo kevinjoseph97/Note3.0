@@ -5,8 +5,8 @@ Welcome to NoteApp a place where you can share you notes with one and another. Y
 * Ruby version 2.6.1
 
 * System dependencies
-gem 'pry'
-gem 'bcrypt'
+ - gem 'pry'
+ - gem 'bcrypt'
 
 gem 'faker'
 

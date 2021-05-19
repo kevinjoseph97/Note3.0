@@ -1,5 +1,22 @@
-<%# <h1> ALL Notes</h1>
+<h1> All Notes for <%= @classroom.subject%> </h1>
 
-<% @notes.each do |note|%>
-    <%# <%= link_to note.title, notes_path(@note)%> 
-<%# <% end %> 
+
+
+
+
+
+
+
+
+<% @notes.each do |n| %>
+   <li> <%= link_to n.title, note_path(n) %> - Owner: <%= n.student.username%></li>
+<% end %>
+
+
+
+
+
+
+
+
+<%# <li> <%= link_to n.title, note_path(n) - Owner: <%=n.student.username%> 
