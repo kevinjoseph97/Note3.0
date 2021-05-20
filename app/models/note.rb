@@ -10,5 +10,5 @@ class Note < ApplicationRecord
 
     validates :title, :content,  presence: true
 
-   
+    scope :ordered_by, -> { order('created_at DESC') }
 end

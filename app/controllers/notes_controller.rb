@@ -6,7 +6,7 @@ class NotesController < ApplicationController
       if params[:classroom_id]
         @classroom = find_classroom
        
-        @notes = @classroom.notes
+        @notes = @classroom.notes.ordered_by
         binding.pry
       else
         @notes = Note.all
