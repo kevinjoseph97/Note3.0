@@ -35,17 +35,17 @@ class NotesController < ApplicationController
             @note = @classroom.notes.build(notes_params)
             @note.student = current_student
         else
-            binding.pry
+            # binding.pry
             @note = Note.new(notes_params)
             @note.student = current_student
-            binding.pry
+            # binding.pry
         end
 
 
 
 
         if @note.save 
-            binding.pry
+            # binding.pry
             redirect_to note_path(@note)
         else
             render :new

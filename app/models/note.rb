@@ -5,4 +5,10 @@ class Note < ApplicationRecord
     has_many :classrooms, through: :classroom_notes
 
     accepts_nested_attributes_for :classrooms
+
+
+
+    validates :title, :content,  presence: true
+
+   
 end
