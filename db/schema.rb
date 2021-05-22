@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(version: 2021_05_13_010038) do
 
   create_table "students", force: :cascade do |t|
     t.string "username"
-    t.string "major"
     t.string "password_digest"
     t.string "uid"
     t.string "provider"

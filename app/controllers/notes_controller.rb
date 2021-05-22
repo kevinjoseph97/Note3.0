@@ -7,10 +7,10 @@ class NotesController < ApplicationController
         @classroom = find_classroom
        
         @notes = @classroom.notes.ordered_by
-        binding.pry
+        # binding.pry
       else
         @notes = Note.all
-        binding.pry
+        # binding.pry
       end
 
     end
@@ -20,10 +20,10 @@ class NotesController < ApplicationController
         if params[:classroom_id]
             @classroom = find_classroom
             @note = @classroom.notes.build
-            binding.pry
+            # binding.pry
         else
             @note = Note.new 
-            binding.pry
+            # binding.pry
         end
     end
 
@@ -31,7 +31,7 @@ class NotesController < ApplicationController
     def create 
         @classroom = find_classroom
         if params[:classroom_id]
-            binding.pry
+            # binding.pry
             @note = @classroom.notes.build(notes_params)
             @note.student = current_student
         else

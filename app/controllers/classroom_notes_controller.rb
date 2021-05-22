@@ -10,11 +10,8 @@ class ClassroomNotesController < ApplicationController
     
 
     def new 
-        
         @classroomnote = ClassroomNote.new
         # binding.pry
-       
-
     end
 
     def create

@@ -8,19 +8,19 @@
 
 
 
-10.times do 
+5.times do 
 
-    Student.create(username: Faker::Name.first_name, major:Faker::Educator.degree, password: 'hi')
+    Student.create(username:Faker::Movies::HarryPotter.character,  password: 'hi')
 end
 
 
 10.times do 
-    Note.create(title:Faker::Games::Pokemon.name, content: Faker::Games::Pokemon.move, student: Student.all.sample )
+    Note.create(title:Faker::Movies::HarryPotter.book, content: Faker::Movies::HarryPotter.quote, student: Student.all.sample )
 
 end
 
 
-10.times do 
+5.times do 
     Classroom.create(subject: Faker::Educator.subject, student: Student.all.sample )
 
 end

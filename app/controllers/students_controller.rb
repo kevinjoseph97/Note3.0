@@ -12,7 +12,7 @@ class StudentsController < ApplicationController
 
     def create 
         @student = Student.new(student_params)
-        binding.pry
+        # binding.pry
         if @student.save
             session[:student_id] = @student.id
             # binding.pry
