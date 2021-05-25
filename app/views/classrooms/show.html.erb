@@ -1,18 +1,11 @@
-<h1> Classroom Show Page </h1>
 
-<h2>Welcome to <%= @classroom.subject%> Class </h2>
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to <%= @classroom.subject%> Class </h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+  <%# <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> %>
+  <%= link_to "All Notes", "/classrooms/#{@classroom.id}/notes", class: "btn btn-primary btn-lg"%>
+  <%= link_to "New Note", "/classrooms/#{@classroom.id}/notes/new", class: "btn btn-primary btn-lg"%>
 
-
-link to add new note
-<br>
-
-
-link to see all notes
-
-
-<%= link_to "All Notes", "/classrooms/#{@classroom.id}/notes" %>
-
-
-
-
+</div>
 

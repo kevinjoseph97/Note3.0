@@ -11,11 +11,10 @@ class ClassroomNotesController < ApplicationController
 
     def new 
         @classroomnote = ClassroomNote.new
-        # binding.pry
     end
 
+     
     def create
-        
         @classroomnote = ClassroomNote.new(classroomnote_params)
         # binding.pry
         if @classroomnote.save 
@@ -35,12 +34,7 @@ class ClassroomNotesController < ApplicationController
     end
 
 
-    #do I want to edit notes from here
-    # def edit
-    # end
-
-    # def update
-    # end
+   
 
     private 
 

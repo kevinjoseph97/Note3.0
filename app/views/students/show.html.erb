@@ -1,9 +1,16 @@
-<%# <%binding.pry%> 
 
-<%# <%= flash[:message] %> 
 
-<h1> SHOW PAGE </h1>
-<h2> Welcome <%= @student.username %></h2>
 
-#add all the persons notes to this page 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+   <h1 class="display-2">Welcome <%= @student.username %></h1>
+    <p class="lead"> Here are all  your notes: </p>
+    <p 
+        <% current_student.notes.each do |n| %>
+          <li>  <%= link_to n.title, note_path(n)%></li>
+        <% end %>
+        
+    </p>
+  </div>
+</div>
 

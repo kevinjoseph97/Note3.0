@@ -1,6 +1,21 @@
 Rails.application.routes.draw do
   root 'application#home'
   
+
+  get 'signin', to: 'sessions#new'
+  post 'signin', to: 'sessions#create'
+
+  get '/auth/:provider/callback', to: 'sessions#omniauth'
+
+  delete 'signout', to: 'sessions#destroy'
+
+  get 'signup', to: 'students#new'
+  post 'signup', to: 'students#create'
+
+
+
+
+
   resources :classroom_notes
   resources :notes
   resources :students 
@@ -17,16 +32,13 @@ Rails.application.routes.draw do
   #post '/classroom_notes/new', to: "classroom_notes#create"
 
 
-  get 'signin', to: 'sessions#new'
-  post 'signin', to: 'sessions#create'
-  delete 'signout', to: 'sessions#destroy'
 
 
-  get 'signup', to: 'students#new'
-  post 'signup', to: 'students#create'
+
+
 
   
-  get '/auth/:provider/callback', to: 'sessions#omniauth'
+
 
 
 end

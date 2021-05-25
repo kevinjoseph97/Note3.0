@@ -13,6 +13,9 @@
   </div>
 <% end %>
 
+
+
+
 <%= form_with model: @student do |f| %>
 
     <%= f.label :username %>
@@ -29,6 +32,9 @@
 
     <%= f.submit "Sign UP" %>
 <% end %>
+
+
+
 
 <%= button_to "Log in with Google", '/auth/google_oauth2' %>
 

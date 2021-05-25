@@ -5,14 +5,15 @@
 <div class="jumbotron jumbotron-fluid">
    <div class="container">
       <h1 class="display-4">All Notes for <%= @classroom.subject%> Class </h1>
-      <p class="lead">Here are all the notes for this class along with who owns them </p>
+      <p class="lead"> </p>
       <hr class="my-4">
       <p>
             <% @notes.each do |n| %>
                   <li> <%= link_to n.title, note_path(n) %> - Owner: <%= n.student.username%></li>
                <% end %>
          </p>
-       <a class="btn btn-primary btn-lg" <%= link_to 'Back', :back %></a> 
+         <br>
+       <a class="btn btn-primary btn-md" <%= link_to 'Back', :back %></a> 
    </div>
 </div>
 
