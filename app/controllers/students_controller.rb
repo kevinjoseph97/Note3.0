@@ -18,6 +18,7 @@ class StudentsController < ApplicationController
     end
 
     def show 
+        authorized?
         @student = Student.find_by_id(params[:id])
         redirect_to '/' if !@student
     end
@@ -27,7 +28,7 @@ class StudentsController < ApplicationController
     private 
 
     def student_params
-        params.require(:student).permit(:username, :password)
+        params.require(:student).permit(:username, :password, :uid, :provider )
     end
 
    

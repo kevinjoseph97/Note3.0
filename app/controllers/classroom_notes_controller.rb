@@ -1,12 +1,8 @@
 class ClassroomNotesController < ApplicationController
-    #drop down for the classroom subject
-    # ClassroomNote.first.classroom.student.username
 
-    #don't need this... 
-    # def index 
-    #     @classroom_notes = ClassroomNote.all
-    # end
 
+   
+    before_action :authorized?
     
 
     def new 

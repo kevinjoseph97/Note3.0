@@ -1,5 +1,8 @@
 <h1> Log In Below </h1>
 
+<%= flash[:message] if flash[:message]%>
+
+
 
 <%= form_with url: '/signin' do |f|  %>
     <%= f.label :username %>
@@ -13,4 +16,4 @@
 
 <% end %>
 
-<%= button_to "Log in with Google", '/auth/google_oauth2' %>
+<%= button_to "Sign in with Google", '/auth/google_oauth2' %>

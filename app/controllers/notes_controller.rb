@@ -1,5 +1,5 @@
 class NotesController < ApplicationController
-
+    before_action :authorized?
 
     def index 
     #   binding.pry
@@ -40,8 +40,6 @@ class NotesController < ApplicationController
             @note.student = current_student
             # binding.pry
         end
-
-
 
 
         if @note.save 
@@ -86,7 +84,7 @@ class NotesController < ApplicationController
 
 
     def notes_params 
-        params.require(:note).permit(:title, :content, :classroom_id)
+        params.require(:note).permit(:title, :content)
     end
 
     def find_classroom

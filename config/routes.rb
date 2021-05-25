@@ -18,33 +18,17 @@ Rails.application.routes.draw do
 
   resources :classroom_notes
   resources :notes
-  resources :students 
 
-
-  resources :classrooms do 
-    resources :notes, only: [:index, :new, :create ]
+  resources :students do 
+    resources :classrooms, only: [:new, :create, :show]
   end
 
 
-
-
-
-  #post '/classroom_notes/new', to: "classroom_notes#create"
-
-
-
-
-
-
-
-  
+  resources :classrooms do 
+    resources :notes, only: [:index]
+  end
 
 
 
 end
 
-
-
-#want to be able to go to classroom/id/notes .... shoudl show your notes
-
-#want to be able to go to classroom/id/notes/new?????
