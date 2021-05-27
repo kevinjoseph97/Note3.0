@@ -1,9 +1,6 @@
 class NotesController < ApplicationController
     before_action :authorized?
    
-
-
-
     def index 
           if params[:classroom_id]
             @student = current_student
@@ -29,10 +26,10 @@ class NotesController < ApplicationController
 
 
     def create 
-        @note = current_student.notes.build(student_notes_params)
-        if @note.save 
-           
-            redirect_to classrooms_path
+        if  params[:student_id]
+            @note = current_student.notes.build(student_notes_params)
+                @note.save 
+                redirect_to classrooms_path
         else
             render :new 
         end

@@ -8,7 +8,7 @@
       <p class="lead"> </p>
       <hr class="my-4">
       <p>
-            <% @notes.each do |n| %>
+            <% @notes.uniq.each do |n| %>
                   <li> <%= link_to n.title, student_note_path(current_student, n) %> - Owner: <%= n.student.username%></li>
                <% end %>
          </p>
