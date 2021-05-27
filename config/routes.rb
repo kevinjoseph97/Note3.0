@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+ 
   root 'application#home'
   
 
@@ -13,20 +14,18 @@ Rails.application.routes.draw do
   post 'signup', to: 'students#create'
 
 
+  resources :scribbles
 
+  resources :classrooms do 
+    resources :notes, only: [:new, :create, :index]
+  end
+
+  resources :students do 
+    resources :notes 
+  end
 
 
   resources :classroom_notes
-  resources :notes
-
-  resources :students do 
-    resources :classrooms, only: [:new, :create, :show]
-  end
-
-
-  resources :classrooms do 
-    resources :notes, only: [:index]
-  end
 
 
 

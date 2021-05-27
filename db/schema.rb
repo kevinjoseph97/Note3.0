@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_13_010038) do
+ActiveRecord::Schema.define(version: 2021_05_26_235916) do
 
   create_table "classroom_notes", force: :cascade do |t|
     t.integer "note_id"
@@ -39,6 +39,16 @@ ActiveRecord::Schema.define(version: 2021_05_13_010038) do
     t.index ["student_id"], name: "index_notes_on_student_id"
   end
 
+  create_table "scribbles", force: :cascade do |t|
+    t.integer "note_id", null: false
+    t.integer "classroom_id", null: false
+    t.boolean "sharable"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["classroom_id"], name: "index_scribbles_on_classroom_id"
+    t.index ["note_id"], name: "index_scribbles_on_note_id"
+  end
+
   create_table "students", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -52,4 +62,6 @@ ActiveRecord::Schema.define(version: 2021_05_13_010038) do
   add_foreign_key "classroom_notes", "notes"
   add_foreign_key "classrooms", "students"
   add_foreign_key "notes", "students"
+  add_foreign_key "scribbles", "classrooms"
+  add_foreign_key "scribbles", "notes"
 end

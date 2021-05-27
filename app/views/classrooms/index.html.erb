@@ -12,16 +12,22 @@
 <br>
 <br>
 
-Here are all the Classrooms
+Here are all the Classrooms:
 
 <ul class="list-group list-group-flush">
     <% @allclassrooms.each do |c|  %>
-        <li class="list-group-item"><%= link_to c.subject, classroom_path(c)%></li>
+        <li class="list-group-item"><%= link_to c.subject, classroom_path(c) %></li>
     <% end %>
 </ul>
 
+<br>
+<br>
+<br>
+<br>
 
 
+Don't see a class you want? 
+<%= link_to "Add New Class", new_classroom_path%>
 
 
 

@@ -4,25 +4,23 @@
 <div class="jumbotron">
 
   <h1 class="display-3">Let's Edit This Note</h1>
-  <%= form_for @note do |f|%> 
-      <p class="lead">
-          <%= f.label :title %>
-          <%= f.text_field :title, placeholder: "Enter a Title"%>
-      </p>
+   <%= form_for ([@student, @note]) do |f|%> 
+        <p class="lead">
+            <%= f.label :title %>
+            <%= f.text_field :title, placeholder: "Enter a Title"%>
+        </p>
 
 
-      <hr class="my-4">
-      <p>
-        <%= f.label :content%>
-        <%= f.text_area :content, size: "70x5", placeholder: "Type your notes here."%>
-      </p>
+        <hr class="my-4">
+        <p>
+          <%= f.label :content%>
+          <%= f.text_area :content, size: "70x5", placeholder: "Type your notes here."%>
+        </p>
 
-      <% if @classroom %>
-          <%= f.hidden_field :classroom_id, value: @classroom.id %>
-      <% end %>
- 
+       
+  
 
-      <%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
+        <%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
   <% end %>
   
 </div>

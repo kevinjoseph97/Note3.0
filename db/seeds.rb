@@ -9,23 +9,14 @@
 
 
 5.times do 
-
     Student.create(username:Faker::Movies::HarryPotter.character,  password: 'hi')
 end
 
 
-10.times do 
-    Note.create(title:Faker::Movies::HarryPotter.book, content: Faker::Movies::HarryPotter.quote, student: Student.all.sample )
-
-end
 
 
-5.times do 
+3.times do 
     Classroom.create(subject: Faker::Educator.subject, student: Student.all.sample )
-
 end
 
 
-10.times do 
-    ClassroomNote.create(note: Note.all.sample, classroom: Classroom.all.sample, sharable: true)
-end

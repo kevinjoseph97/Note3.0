@@ -8,17 +8,14 @@
       <p class="lead"> </p>
       <hr class="my-4">
       <p>
+         <%bind.pry%>
             <% @notes.each do |n| %>
-                  <li> <%= link_to n.title, note_path(n) %> - Owner: <%= n.student.username%></li>
+                  <li> <%= link_to n.title, student_note_path(current_student, n) %> - Owner: <%= n.student.username%></li>
                <% end %>
          </p>
          <br>
        <a class="btn btn-primary btn-md" <%= link_to 'Back', :back %></a> 
    </div>
 </div>
-
-
-
-
 
 

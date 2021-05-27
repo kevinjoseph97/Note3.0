@@ -15,53 +15,32 @@
 
 
 <div class="jumbotron">
-
-  <h1 class="display-3">Let's Add A New Note</h1>
-  <%= form_for @note do |f|%> 
-      <p class="lead">
-          <%= f.label :title %>
-          <%= f.text_field :title, placeholder: "Enter a Title"%>
-      </p>
-
-
-      <hr class="my-4">
-      <p>
-        <%= f.label :content%>
-        <%= f.text_area :content, size: "70x5", placeholder: "Type your notes here."%>
-      </p>
-
-      <% if @classroom %>
-          <%= f.hidden_field :classroom_id, value: @classroom.id %>
-      <% end %>
- 
-
-      <%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
-  <% end %>
   
+
+
+
+    <h1 class="display-3">Let's Add A New Note</h1>
+    <%= form_for ([@student, @note]) do |f|%> 
+        <p class="lead">
+            <%= f.label :title %>
+            <%= f.text_field :title, placeholder: "Enter a Title"%>
+        </p>
+
+
+        <hr class="my-4">
+        <p>
+          <%= f.label :content%>
+          <%= f.text_area :content, size: "70x5", placeholder: "Type your notes here."%>
+        </p>
+
+       
+  
+
+        <%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
+  <% end %>
+    
 </div>
 
 
 
 
-
-
-
-<%# <%= form_for @note do |f|%>  
-
-
-    <%# <%= f.label :title %> 
-    <%# <%= f.text_field :title %> 
-
-    <br>
-
-    <%# <%= f.label :content%> 
-    <%# <%= f.text_area :content, size: "70x5"%> 
-
-    <%# <% if @classroom %> 
-        <%# <%= f.hidden_field :classroom_id, value: @classroom.id %> 
-    <%# <% end %> 
- 
-
-    <br>
-    <%# <%= f.submit "Submit"%> 
-<%# <% end %> 

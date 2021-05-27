@@ -1,0 +1,13 @@
+<h1>Create a new Class: </h1>
+
+<%= form_with model: @classroom do |f| %>
+
+    <%= f.label :subject%>
+    <%= f.text_area  :subject %>
+
+ 
+
+    <%= f.hidden_field :student_id, value: "#{current_student.id}"%>
+
+    <%= f.submit%>
+<% end %>

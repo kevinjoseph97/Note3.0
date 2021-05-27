@@ -1,8 +1,11 @@
 class Note < ApplicationRecord
 
     belongs_to :student 
-    has_many :classroom_notes 
-    has_many :classrooms, through: :classroom_notes
+    has_many :scribbles
+    has_many :classrooms, through: :scribbles
+
+
+
 
     accepts_nested_attributes_for :classrooms
 

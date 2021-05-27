@@ -1,0 +1,13 @@
+<h1>THis is Scribble Form</h1>
+
+
+
+<%= form_with model: [@student, @scribble] do |f| %>
+    <%= f.collection_select :classroom_id, Classroom.all, :id, :subject %>
+   <%= f.collection_select :note_id,  current_student.notes, :id, :title %>
+   <%= f.label :sharable%>
+   <%= f.check_box :sharable, {}, true, false %>
+    
+    <%= f.submit%>
+    
+<% end %>

@@ -1,8 +1,3 @@
-
-
-
-
-
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <h1 class="display-4"><%= @note.title %></h1>
@@ -13,9 +8,9 @@
 
 
 <% if @note.student_id == current_student.id %>
-   <%= link_to "Edit", edit_note_path(@note),  class: "btn btn-info"%> | 
-  <%= link_to "Delete Note", note_path(@note), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> | 
-   <%= link_to "Add This Note To A Classroom", new_classroom_note_path, class:" btn btn-success" %> | 
+   <%= link_to "Edit", edit_student_note_path(current_student, @note),  class: "btn btn-info"%> | 
+  <%= link_to "Delete Note", student_note_path(current_student, @note), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> | 
+   <%# <%= link_to "Add This Note To A Classroom", new_classroom_note_path, class:" btn btn-success" %> |  
    
     <a class="btn btn-primary btn-md" <%= link_to 'Back', :back %></a>
 <% else %>
@@ -23,5 +18,4 @@
 
     <a class="btn btn-primary btn-md" <%= link_to 'Back', :back %></a>
 <% end %>
-
 

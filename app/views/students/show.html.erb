@@ -5,12 +5,30 @@
   <div class="container">
    <h1 class="display-2">Welcome <%= @student.username %></h1>
     <p class="lead"> Here are all  your notes: </p>
-    <p 
-        <% current_student.notes.each do |n| %>
-          <li>  <%= link_to n.title, note_path(n)%></li>
-        <% end %>
+
+      <% current_student.notes.each do |n| %>
+        <li>  <%= link_to n.title, student_note_path(current_student, n)%> </li>
+      <% end %>
         
-    </p>
+    
+  </div>
+
+<br><br>
+
+  <div class="container">
+       <p class="lead"> Here are all  your classes: </p>
+        
+      <% current_student.classrooms.each do |c| %>
+        <li>  <%= link_to c.subject, classroom_path(c)%> </li>
+      <% end %>
+
+
+
+
   </div>
 </div>
+
+
+
+
 

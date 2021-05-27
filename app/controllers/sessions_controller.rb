@@ -4,26 +4,7 @@ class SessionsController < ApplicationController
     end
 
 
-
-
-    # def omniauth
-    #     binding.pry
-    #     @student = Student.create_from_omniauth(auth)
-    #     if @student.valid? 
-    #         session[:student_id] = @student.id
-    #         binding.pry
-    #         redirect_to student_path(@student)
-    #     else
-    #         binding.pry
-    #         flash[:message] = @student.errors.full_messages.join(',')
-    #         redirect_to "/"
-    #     end
-    # end
-
-
-
     def omniauth
-        binding.pry
         @student = Student.find_or_create_by(username: auth["info"]["first_name"]) do |s| 
             s.username = auth["info"]["first_name"]
             s.password = SecureRandom.hex(7)
@@ -37,9 +18,6 @@ class SessionsController < ApplicationController
 
 
     end
-
-
-
 
     
     def create 

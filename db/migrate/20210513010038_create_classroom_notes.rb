@@ -4,6 +4,7 @@ class CreateClassroomNotes < ActiveRecord::Migration[6.1]
       t.belongs_to :note, foreign_key: true
       t.belongs_to :classroom, null: false, foreign_key: true
       t.boolean :sharable
+      
 
       t.timestamps
     end
