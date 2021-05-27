@@ -9,8 +9,7 @@
 
 <% if @note.student_id == current_student.id %>
    <%= link_to "Edit", edit_student_note_path(current_student, @note),  class: "btn btn-info"%> | 
-  <%= link_to "Delete Note", student_note_path(current_student, @note), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> | 
-   <%# <%= link_to "Add This Note To A Classroom", new_classroom_note_path, class:" btn btn-success" %> |  
+  <%= link_to "Delete Note", student_note_path(current_student, @note), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %> |   
    
     <a class="btn btn-primary btn-md" <%= link_to 'Back', :back %></a>
 <% else %>

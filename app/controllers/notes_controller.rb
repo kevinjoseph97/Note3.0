@@ -1,33 +1,14 @@
 class NotesController < ApplicationController
     before_action :authorized?
+   
 
 
-
-
-    # def index 
-    #   if params[:classroom_id]
-    #     @classroom = Classroom.find_by_id(params[:id])
-    #     @student = current_student
-       
-    #     if @classroom
-    #         binding.pry
-    #         @notes = @classroom.notes.ordered_by
-    #     else
-    #         binding.pry
-    #         redirect_to classrooms_path
-    #     end
-    #   else
-    #     @notes = Note.all
-    #   end
-    # end
 
     def index 
-        #   binding.pry
           if params[:classroom_id]
             @student = current_student
             @classroom = find_classroom
-           
-            @notes = @classroom.notes.ordered_by
+            @notes = @classroom.notes.ordered_by.shared
             # binding.pry
           else
             @notes = Note.all
@@ -56,34 +37,6 @@ class NotesController < ApplicationController
             render :new 
         end
     end
-
-
-
-    #create errors messages 
-    # @classroom = find_classroom
-    # binding.pry
-    # if params[:classroom_id]
-    #     binding.pry
-    #     @note = @classroom.notes.build(notes_params)
-    #     binding.pry
-    #     # @note.student = current_student
-    # else
-        
-    #     find_classroom
-    #     @note = Note.new(notes_params)
-    #     @note.student = current_student
-    #     binding.pry
-    #     # binding.pry
-    # # end
-    # if @note.save 
-        
-    #     binding.pry
-    #     redirect_to note_path(@note)
-    # else
-    #     render :new
-    # end  
-
-
 
 
     def show 

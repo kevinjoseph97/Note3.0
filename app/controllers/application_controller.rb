@@ -22,13 +22,8 @@ class ApplicationController < ActionController::Base
 
 
 
-    def student_note
-         current_student.id == @note.student_id 
-    end
-
-   
-        
-
-
 
 end
+
+
+

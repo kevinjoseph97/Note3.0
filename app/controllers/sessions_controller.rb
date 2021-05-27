@@ -16,19 +16,18 @@ class SessionsController < ApplicationController
             redirect_to '/'
         end
 
-
     end
 
     
     def create 
         @student = Student.find_by(username: params[:username])
-            if @student && @student.authenticate(params[:password])
-                session[:student_id] = @student.id
-                redirect_to student_path(@student)
-            else
-                flash[:message] = "Woahhh, something wasn't right there... "
-                redirect_to signin_path
-            end 
+        if @student && @student.authenticate(params[:password])
+            session[:student_id] = @student.id
+            redirect_to student_path(@student)
+        else
+            flash[:message] = "Woahhh, something wasn't right there... "
+            redirect_to signin_path
+        end 
     end
 
 

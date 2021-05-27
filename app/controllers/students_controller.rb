@@ -1,7 +1,6 @@
 class StudentsController < ApplicationController
 
 
-
     def new 
         @student = Student.new 
     end
@@ -28,7 +27,7 @@ class StudentsController < ApplicationController
     private 
 
     def student_params
-        params.require(:student).permit(:username, :password, :uid, :provider )
+        params.require(:student).permit(:username, :password, :uid, :provider)
     end
 
    

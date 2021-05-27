@@ -9,18 +9,17 @@ class ClassroomsController < ApplicationController
     def create 
         binding
         @classroom = Classroom.new(classroom_params)
-        binding.pry
+        #binding.pry
         if @classroom.save
-            binding.pry
+            #binding.pry
             current_student.classrooms << @classroom
             redirect_to classrooms_path
         else
-            binding.pry
+           # binding.pry
             @classroom.errors.full_messages
             render :new
         end
     end
-
 
 
 
