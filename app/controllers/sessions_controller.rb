@@ -25,8 +25,10 @@ class SessionsController < ApplicationController
             session[:student_id] = @student.id
             redirect_to student_path(@student)
         else
-            flash[:message] = "Woahhh, something wasn't right there... "
+            flash[:message] = "Hold UP, Lets Try That Again "
+            binding.pry
             redirect_to signin_path
+           
         end 
     end
 

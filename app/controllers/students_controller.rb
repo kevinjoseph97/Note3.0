@@ -22,6 +22,15 @@ class StudentsController < ApplicationController
         redirect_to '/' if !@student
     end
 
+    def search 
+        # binding.pry 
+        if params[:search].blank?
+            redirect_to student_path(current_student)
+        else
+            @parameter = params[:search].downcase  
+            @results = Note.all.where("lower(title) LIKE :search", search: @parameter)  
+        end
+    end
 
 
     private 

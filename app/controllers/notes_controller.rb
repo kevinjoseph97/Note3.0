@@ -41,6 +41,7 @@ class NotesController < ApplicationController
     end
 
 
+
     def edit 
         if params[:student_id]
             @student = current_student

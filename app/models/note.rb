@@ -7,7 +7,7 @@ class Note < ApplicationRecord
 
     accepts_nested_attributes_for :classrooms
 
-    validates :title, :content,  presence: true
+    validates :title, :content, :student_id,  presence: true
 
     scope :ordered_by, -> { order('created_at DESC') }
 

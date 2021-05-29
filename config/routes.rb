@@ -25,9 +25,8 @@ Rails.application.routes.draw do
   end
 
 
-  resources :classroom_notes
-
-
-
+#  get "/search", to: "students#search"
+    
+ get '/search' => 'students#search'
 end
 
