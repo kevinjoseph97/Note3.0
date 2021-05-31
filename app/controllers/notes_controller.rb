@@ -6,10 +6,8 @@ class NotesController < ApplicationController
             @student = current_student
             @classroom = find_classroom
             @notes = @classroom.notes.ordered_by.shared
-            # binding.pry
           else
             @notes = Note.all
-            # binding.pry
           end
     end
 
@@ -27,11 +25,17 @@ class NotesController < ApplicationController
 
     def create 
         if  params[:student_id]
-            @note = current_student.notes.build(student_notes_params)
-                @note.save 
-                redirect_to classrooms_path
+            @student = current_student
+            @note = @student.notes.build(student_notes_params)
+                if @note.save
+                    binding.pry 
+                    redirect_to student_path(current_student)
+                else
+                    render :new
+                end
         else
-            render :new 
+            binding.pry
+            redirect_to student_path(current_student)
         end
     end
 
